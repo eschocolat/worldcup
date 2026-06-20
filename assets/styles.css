@@ -355,6 +355,17 @@ section { position: relative; z-index: 2; padding: clamp(4.5rem, 10vw, 8rem) cla
 .gcard__row--2 .gcard__pos { color: var(--amber); }
 .fate--in { background: rgba(54,224,127,0.15); color: var(--green); }
 .fate--out { background: rgba(255,77,109,0.12); color: var(--red); }
+.fate--gone { background: rgba(255,255,255,0.05); color: var(--fg-faint); }
+.gcard__row--4 { opacity: 0.55; }
+.gcard__row--4 .gcard__pos { color: var(--fg-faint); }
+.lg--4::before { color: var(--fg-faint); }
+.lg--hot::before { content: "▣ "; color: var(--amber); }
+.gcard--hot { border-color: rgba(255,179,48,0.4); }
+.gcard--hot .gcard__head { background: linear-gradient(90deg, rgba(255,179,48,0.12), transparent); }
+.gcard__hot {
+  font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; color: #1a1100;
+  background: var(--amber); padding: 0.18rem 0.45rem; border-radius: 5px; font-weight: 600;
+}
 
 @media (max-width: 1080px) { .groups__grid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 780px) { .groups__grid { grid-template-columns: repeat(2, 1fr); } }
@@ -400,7 +411,116 @@ section { position: relative; z-index: 2; padding: clamp(4.5rem, 10vw, 8rem) cla
 .round--final .tie__side--win::before { background: var(--amber); box-shadow: 0 0 12px var(--amber); }
 .round--final .tie__side--win .tie__name::after { color: var(--amber); }
 
+.tie__cmt {
+  font-size: 0.66rem; line-height: 1.4; color: var(--fg-dim);
+  padding: 0.45rem 0.65rem; border-top: 1px solid var(--line);
+  background: rgba(255,255,255,0.015);
+}
+.tie--big { border-color: rgba(0,229,212,0.32); }
+.tie--big .tie__cmt { color: var(--cyan-soft); }
+.round--final .tie--big .tie__cmt { color: var(--amber-soft); border-top-color: rgba(255,179,48,0.3); }
+
 .bracket__hint { display: none; }
+
+/* ============================================================
+   COMPARE — 내 픽 vs Opta vs 시장
+   ============================================================ */
+.compare__chart { max-width: var(--maxw); margin: 0 auto; display: flex; flex-direction: column; gap: 0.7rem; }
+.cmp {
+  display: grid; grid-template-columns: 1fr auto; gap: 0.4rem 1rem; align-items: center;
+  padding: 1rem clamp(0.9rem, 2vw, 1.4rem); border-radius: 14px;
+  background: var(--panel); border: 1px solid var(--line);
+  transition: background 0.3s, border-color 0.3s, transform 0.3s var(--ease);
+}
+.cmp:hover { background: var(--panel-2); transform: translateX(4px); }
+.cmp--lead { border-color: rgba(0,229,212,0.4); background: linear-gradient(100deg, rgba(0,229,212,0.06), var(--panel) 45%); }
+.cmp__head { grid-column: 1 / -1; display: flex; align-items: center; gap: 0.6rem; }
+.cmp__flag { font-size: 1.3rem; }
+.cmp__name { font-family: var(--expanded); font-weight: 700; font-size: 1.05rem; }
+.cmp__market { margin-left: auto; font-family: var(--mono); font-size: 0.72rem; color: var(--amber); letter-spacing: 0.04em; }
+.cmp__bars { display: flex; flex-direction: column; gap: 0.4rem; }
+.cmp__line { display: grid; grid-template-columns: 3.2rem 1fr 3rem; align-items: center; gap: 0.7rem; }
+.cmp__tag { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.04em; }
+.cmp__tag--mine { color: var(--cyan); }
+.cmp__tag--opta { color: var(--amber); }
+.cmp__track { position: relative; height: 9px; background: rgba(255,255,255,0.05); border-radius: 999px; overflow: hidden; }
+.cmp__fill { position: absolute; left: 0; top: 0; bottom: 0; width: 0; border-radius: 999px; transition: width 1.1s var(--ease); }
+.cmp__fill--mine { background: linear-gradient(90deg, var(--cyan), var(--cyan-soft)); box-shadow: 0 0 12px rgba(0,229,212,0.4); }
+.cmp__fill--opta { background: linear-gradient(90deg, #b9821f, var(--amber)); }
+.cmp__val { font-family: var(--mono); font-size: 0.8rem; text-align: right; color: var(--fg-dim); }
+.cmp__diff {
+  font-family: var(--display); font-size: 1.35rem; min-width: 3.6rem; text-align: center;
+  align-self: center; color: var(--fg-faint);
+}
+.cmp__diff--up { color: var(--cyan); }
+.cmp__diff--down { color: var(--red); }
+.compare__note { max-width: var(--maxw); margin: 1.6rem auto 0; font-size: 0.88rem; color: var(--fg-dim); }
+.compare__note strong { color: var(--cyan-soft); }
+@media (max-width: 640px) {
+  .cmp { grid-template-columns: 1fr; }
+  .cmp__diff { justify-self: end; min-width: 0; }
+  .cmp__market { font-size: 0.66rem; }
+}
+
+/* ============================================================
+   KICKOFF — 1차전 출발 현황
+   ============================================================ */
+.kickoff__grid { max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: 1.3fr 1fr; gap: 1.2rem; }
+.kgroup { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: clamp(1.3rem, 3vw, 2rem); }
+.kgroup--win { border-color: rgba(54,224,127,0.3); }
+.kgroup--draw { border-color: rgba(255,179,48,0.3); }
+.kgroup__head { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.2rem; }
+.kgroup__badge {
+  font-family: var(--display); font-size: 0.9rem; padding: 0.25rem 0.6rem; border-radius: 7px;
+  background: var(--green); color: #00220f;
+}
+.kgroup__badge--draw { background: var(--amber); color: #1a1100; }
+.kgroup__head h3 { font-family: var(--display-ko); font-weight: 400; font-size: 1.2rem; }
+.kgroup__head h3 span { color: var(--cyan); }
+.kgroup__chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.chip {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.85rem; font-weight: 600; padding: 0.4rem 0.75rem;
+  background: rgba(255,255,255,0.04); border: 1px solid var(--line-2); border-radius: 999px;
+  transition: transform 0.25s var(--ease), background 0.25s;
+}
+.chip:hover { transform: translateY(-2px); background: rgba(255,255,255,0.08); }
+.chip__flag { font-size: 1rem; }
+.kgroup--win .chip { border-color: rgba(54,224,127,0.25); }
+.kgroup--draw .chip { border-color: rgba(255,179,48,0.25); }
+.kgroup__foot { margin-top: 1.2rem; font-size: 0.82rem; color: var(--fg-faint); line-height: 1.5; }
+@media (max-width: 720px) { .kickoff__grid { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   SCENARIO — 동률 시나리오 토글
+   ============================================================ */
+.scenario__toggle { max-width: 520px; margin: 0 auto 2rem; display: flex; gap: 0.5rem; padding: 0.35rem; background: var(--panel); border: 1px solid var(--line); border-radius: 999px; }
+.scn-btn {
+  flex: 1; font-family: var(--grotesk); font-weight: 600; font-size: 0.88rem; cursor: pointer;
+  padding: 0.7rem 1rem; border: 0; border-radius: 999px; background: transparent; color: var(--fg-dim);
+  transition: all 0.3s var(--ease);
+}
+.scn-btn:hover { color: var(--fg); }
+.scn-btn.is-active { background: var(--cyan); color: #00120f; box-shadow: 0 0 22px rgba(0,229,212,0.35); }
+.scenario__panel { max-width: 760px; margin: 0 auto; }
+.scenario__bars { display: flex; flex-direction: column; gap: 0.7rem; }
+.scn {
+  display: grid; grid-template-columns: 1.5rem minmax(5.5rem, 9rem) 1fr auto; align-items: center; gap: 0.7rem clamp(0.6rem, 2vw, 1.2rem);
+  padding: 0.85rem 1.1rem; border-radius: 12px; background: var(--panel); border: 1px solid var(--line);
+}
+.scn__flag { font-size: 1.25rem; }
+.scn__name { font-family: var(--expanded); font-weight: 700; font-size: 0.98rem; display: flex; align-items: center; gap: 0.4rem; }
+.scn__move { font-size: 0.7rem; }
+.scn__move--up { color: var(--cyan); }
+.scn__move--down { color: var(--red); }
+.scn__track { position: relative; height: 12px; background: rgba(255,255,255,0.05); border-radius: 999px; overflow: hidden; }
+.scn__fill { position: absolute; left: 0; top: 0; bottom: 0; width: 0; border-radius: 999px; background: linear-gradient(90deg, var(--cyan), var(--amber)); transition: width 0.9s var(--ease); }
+.scn__val { font-family: var(--display); font-size: 1.2rem; min-width: 3.4rem; text-align: right; }
+.scenario__note { margin-top: 1.4rem; text-align: center; font-size: 0.95rem; color: var(--fg-dim); line-height: 1.6; min-height: 3em; }
+@media (max-width: 600px) {
+  .scn { grid-template-columns: 1.4rem 1fr auto; }
+  .scn__track { grid-column: 1 / -1; }
+}
 
 /* ============================================================
    FINAL

@@ -36,10 +36,11 @@
   </a>
   <nav class="nav__links" aria-label="섹션 이동">
     <a href="#odds">우승확률</a>
+    <a href="#compare">비교</a>
     <a href="#groups">조별리그</a>
     <a href="#bracket">토너먼트</a>
     <a href="#final">결승</a>
-    <a href="#variables">변수</a>
+    <a href="#scenario">시나리오</a>
   </nav>
   <a class="nav__cta" href="#final">최종 예측 →</a>
 </header>
@@ -144,12 +145,57 @@
   </p>
 </section>
 
+<!-- ===== COMPARE / 내 픽 vs Opta vs 시장 ===== -->
+<section class="compare" id="compare">
+  <div class="section-head">
+    <span class="section-head__idx">03</span>
+    <h2 class="section-head__title">내 픽 vs 모델 vs 시장</h2>
+    <p class="section-head__sub">세 관점이 어디서 갈리는가 — 내 추정(시안)과 대회 전 Opta 슈퍼컴퓨터(앰버)를 나란히, 우측엔 06.18 베팅시장 배당.</p>
+  </div>
+
+  <div class="compare__chart" id="compareChart">
+    <!-- rows injected by JS -->
+  </div>
+
+  <p class="compare__note">
+    핵심 차이: Opta는 <strong>스페인(16.1%)</strong>을 1위로, 프랑스는 4위권(13.0%)으로 봤지만,
+    1차전 결과와 시장(<strong>프랑스 +410 단독 1위</strong>)을 반영하면 내 픽은 프랑스가 근소하게 앞섭니다.
+  </p>
+</section>
+
+<!-- ===== KICKOFF / 1차전 출발 현황 ===== -->
+<section class="kickoff" id="kickoff">
+  <div class="section-head">
+    <span class="section-head__idx">04</span>
+    <h2 class="section-head__title">1차전 출발 현황</h2>
+    <p class="section-head__sub">우승 후보들의 첫 단추. 승리 출발과 무승부 출발이 시장 신뢰를 갈랐습니다.</p>
+  </div>
+
+  <div class="kickoff__grid">
+    <div class="kgroup kgroup--win">
+      <div class="kgroup__head">
+        <span class="kgroup__badge">WIN</span>
+        <h3>승점 3 출발 · <span id="kickoffWinCount">0</span>팀</h3>
+      </div>
+      <div class="kgroup__chips" id="kickoffWin"></div>
+    </div>
+    <div class="kgroup kgroup--draw">
+      <div class="kgroup__head">
+        <span class="kgroup__badge kgroup__badge--draw">DRAW</span>
+        <h3>무승부 출발 · <span id="kickoffDrawCount">0</span>팀</h3>
+      </div>
+      <div class="kgroup__chips" id="kickoffDraw"></div>
+      <p class="kgroup__foot">스페인·브라질·포르투갈·네덜란드 — 우승 후보 4팀이 첫 경기 무승부로 출발해 시장 신뢰가 일부 흔들림.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ===== GROUPS / 조별리그 ===== -->
 <section class="groups" id="groups">
   <div class="section-head">
-    <span class="section-head__idx">03</span>
+    <span class="section-head__idx">05</span>
     <h2 class="section-head__title">예상 조별리그</h2>
-    <p class="section-head__sub">48개국 체제 — 각 조 1·2위 + 12개 조 3위 중 상위 8팀이 32강 진출.</p>
+    <p class="section-head__sub">2026 본선 실제 조 추첨(각 조 4팀) 기준. 48개국 체제 — 각 조 1·2위 + 12개 조 3위 중 상위 8팀이 32강 진출.</p>
   </div>
 
   <div class="groups__legend">
@@ -157,6 +203,8 @@
     <span class="lg lg--2">2위 진출</span>
     <span class="lg lg--3">3위 · 진출</span>
     <span class="lg lg--out">3위 · 탈락</span>
+    <span class="lg lg--4">4위 · 탈락</span>
+    <span class="lg lg--hot">접전 조</span>
   </div>
 
   <div class="groups__grid" id="groupsGrid">
@@ -167,9 +215,9 @@
 <!-- ===== BRACKET / 토너먼트 ===== -->
 <section class="bracket" id="bracket">
   <div class="section-head">
-    <span class="section-head__idx">04</span>
+    <span class="section-head__idx">06</span>
     <h2 class="section-head__title">토너먼트 브래킷</h2>
-    <p class="section-head__sub">32강부터 결승까지 · 예상 승자가 빛나는 라인으로 이어집니다. ← 좌우로 스크롤</p>
+    <p class="section-head__sub">32강부터 결승까지 · 예상 승자가 빛나는 라인으로 이어집니다. 빅매치엔 코멘트가 붙습니다. ← 좌우로 스크롤</p>
   </div>
 
   <div class="bracket__scroll">
@@ -183,7 +231,7 @@
 <section class="final" id="final">
   <div class="final__bg" aria-hidden="true"><span class="orb orb--amber"></span></div>
   <div class="section-head section-head--center">
-    <span class="section-head__idx">05</span>
+    <span class="section-head__idx">07</span>
     <h2 class="section-head__title">결승 예측</h2>
   </div>
 
@@ -251,17 +299,36 @@
 <!-- ===== VARIABLES ===== -->
 <section class="variables" id="variables">
   <div class="section-head">
-    <span class="section-head__idx">06</span>
+    <span class="section-head__idx">08</span>
     <h2 class="section-head__title">가장 큰 변수</h2>
-    <p class="section-head__sub">이 중 야말이 정상 컨디션으로 돌아오면, 프랑스–스페인은 거의 동률로 바뀝니다.</p>
+    <p class="section-head__sub">우승 후보 5팀이 안고 있는 리스크. 이 중 하나가 풀리면 판도가 바뀝니다.</p>
   </div>
 
   <div class="variables__grid">
-    <article class="vcard"><span class="vcard__team">🇪🇸 스페인</span><h3>야말 컨디션</h3><p>Cape Verde전 27슈팅 · xG 2.29에도 0-0. 정상 폼 복귀 시 다시 1위권.</p></article>
+    <article class="vcard"><span class="vcard__team">🇪🇸 스페인</span><h3>야말 컨디션</h3><p>카보베르데전 27슈팅 · xG 2.29에도 0-0. 정상 폼 복귀 시 다시 1위권.</p></article>
     <article class="vcard"><span class="vcard__team">🇧🇷 브라질</span><h3>전술 수정</h3><p>모로코전 1-1 경고등. 전반 경기력 흔들림을 직시해야 한다는 목소리.</p></article>
     <article class="vcard"><span class="vcard__team">🇵🇹 포르투갈</span><h3>공격 구조</h3><p>DR콩고전 1-1로 하락. 재능은 충분하나 구조적 답답함.</p></article>
     <article class="vcard"><span class="vcard__team">🏴󠁧󠁢󠁥󠁮󠁧󠁿 잉글랜드</span><h3>수비 안정성</h3><p>크로아티아전 4-2로 공격력 확인. 남은 리스크는 수비.</p></article>
     <article class="vcard"><span class="vcard__team">🇦🇷 아르헨티나</span><h3>체력 관리</h3><p>알제리전 3-0, 메시 해트트릭. 연속 우승 부담과 체력이 변수.</p></article>
+  </div>
+</section>
+
+<!-- ===== SCENARIO / 동률 시나리오 토글 ===== -->
+<section class="scenario" id="scenario">
+  <div class="section-head section-head--center">
+    <span class="section-head__idx">09</span>
+    <h2 class="section-head__title">시나리오: 만약 야말이 돌아온다면</h2>
+    <p class="section-head__sub">가장 큰 변수 하나가 풀렸을 때 상위권 우승 확률이 어떻게 움직이는지 — 버튼으로 전환해 보세요.</p>
+  </div>
+
+  <div class="scenario__toggle" role="tablist" aria-label="시나리오 선택">
+    <button class="scn-btn" data-scenario="base" role="tab">현재 기준</button>
+    <button class="scn-btn" data-scenario="yamal" role="tab">야말 정상 복귀 시</button>
+  </div>
+
+  <div class="scenario__panel">
+    <div class="scenario__bars" id="scenarioBars" aria-live="polite"></div>
+    <p class="scenario__note" id="scenarioNote"></p>
   </div>
 </section>
 
