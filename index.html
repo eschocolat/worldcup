@@ -3,15 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>WORLD CUP 2026 · 우승 예측 분석 — 프랑스 17%</title>
-<meta name="description" content="2026 월드컵 우승 예측 분석. Opta, 베팅시장, Elo 평가를 종합한 우승확률·조별리그·토너먼트 브래킷 인포그래픽." />
+<title>FIFA WORLD CUP 2026 · 미국 · 캐나다 · 멕시코</title>
+<meta name="description" content="2026 FIFA 월드컵 가이드 — 미국·캐나다·멕시코 3개국 공동 개최, 48개국 104경기. 개최 도시와 경기장, 주요국 스타 선수, 그리고 우승 예측까지." />
 
-<!-- Open Graph -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="WORLD CUP 2026 우승 예측 — 결론: 프랑스" />
-<meta property="og:description" content="우승확률 1위 프랑스 17%. 조별리그부터 결승까지 풀 브래킷 예측." />
+<meta property="og:title" content="FIFA WORLD CUP 2026 — 3개국이 함께 여는 축구 축제" />
+<meta property="og:description" content="48개국 · 104경기 · 16개 도시. 개최지, 스타 선수, 우승 예측을 한눈에." />
 
-<!-- Fonts: characterful, non-default -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Expanded:wght@600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&family=Black+Han+Sans&display=swap" rel="stylesheet" />
@@ -20,184 +18,203 @@
 </head>
 <body>
 
-<!-- ===== GRAIN + GLOW OVERLAYS ===== -->
 <div class="grain" aria-hidden="true"></div>
 <div class="vignette" aria-hidden="true"></div>
-<div class="pitch-lines" aria-hidden="true"></div>
 
-<!-- ===== SCROLL PROGRESS ===== -->
 <div class="scroll-progress" aria-hidden="true"><span id="progressBar"></span></div>
 
 <!-- ===== NAV ===== -->
 <header class="nav" id="nav">
   <a class="nav__brand" href="#top">
     <span class="nav__mark">26</span>
-    <span class="nav__brandtext">WORLD&nbsp;CUP<br /><em>PREDICTION&nbsp;MODEL</em></span>
+    <span class="nav__brandtext">FIFA&nbsp;WORLD&nbsp;CUP<br /><em>USA · CANADA · MEXICO</em></span>
   </a>
   <nav class="nav__links" aria-label="섹션 이동">
-    <a href="#odds">우승확률</a>
-    <a href="#compare">비교</a>
-    <a href="#groups">조별리그</a>
-    <a href="#bracket">토너먼트</a>
-    <a href="#final">결승</a>
-    <a href="#scenario">시나리오</a>
+    <a href="#overview">대회 개요</a>
+    <a href="#hosts">개최국</a>
+    <a href="#cities">도시 · 경기장</a>
+    <a href="#players">스타 선수</a>
+    <a href="#prediction">우승 예측</a>
   </nav>
-  <a class="nav__cta" href="#final">최종 예측 →</a>
+  <a class="nav__cta" href="#prediction">우승 예측 →</a>
 </header>
 
 <main id="top">
 
 <!-- ===== HERO ===== -->
-<section class="hero" id="hero">
-  <div class="hero__bg" aria-hidden="true">
+<section class="hero hero--wc" id="hero">
+  <div class="hero__media" aria-hidden="true">
+    <img src="assets/img/scene/stadium-night.jpg" alt="" />
     <span class="orb orb--cyan"></span>
     <span class="orb orb--amber"></span>
   </div>
 
   <div class="hero__inner">
     <div class="hero__kicker">
-      <span class="dot"></span> 2026 · 단판 토너먼트 우승 예측 · UPDATED 06.18
+      <span class="dot"></span> 2026.06.11 — 07.19 · 미국 · 캐나다 · 멕시코 공동 개최
     </div>
 
     <h1 class="hero__title">
-      <span class="line">우승 예상은</span>
-      <span class="line hero__title--accent" data-text="프랑스">프랑스</span>
+      <span class="line">THE</span>
+      <span class="line hero__title--accent" data-text="WORLD CUP">WORLD&nbsp;CUP</span>
+      <span class="line line--year">2026</span>
     </h1>
 
     <p class="hero__lede">
-      현재 정보로 가장 좋은 단일 픽. “프랑스가 확실하다”가 아니라
-      <strong>전력 · 토너먼트 경험 · 음바페 폼 · 시장 평가</strong>가 가장 균형 잡혀 있다는 뜻입니다.
+      48개국, 104경기, 3개국 16개 도시. 역대 가장 크게 확장된 월드컵이
+      북미 대륙에서 막을 올립니다. 개최지부터 스타 선수, 우승 예측까지 한눈에.
     </p>
 
-    <div class="hero__stats">
-      <div class="bigstat">
-        <span class="bigstat__num" data-count="17">0</span><span class="bigstat__pct">%</span>
-        <span class="bigstat__label">프랑스 추정 우승확률</span>
-      </div>
-      <div class="bigstat__rule"></div>
-      <div class="hero__substats">
-        <div class="substat"><b>+410</b><span>베팅시장 단독 1순위 (06.18)</span></div>
-        <div class="substat"><b>3-1</b><span>세네갈전 승 · 음바페 멀티골</span></div>
-        <div class="substat"><b>2-1</b><span>예상 결승 스코어 vs 아르헨티나</span></div>
-      </div>
+    <div class="hero__cta-row">
+      <a class="btn btn--primary" href="#overview">대회 둘러보기</a>
+      <a class="btn btn--ghost" href="#players">스타 선수 보기</a>
     </div>
-
-    <a class="hero__scroll" href="#odds">
-      <span>분석 내려보기</span>
-      <svg width="14" height="22" viewBox="0 0 14 22" fill="none"><path d="M7 1v18m0 0l5-5m-5 5l-5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
   </div>
 
   <div class="hero__marquee" aria-hidden="true">
     <div class="marquee__track">
-      <span>FRANCE · ESPAÑA · ENGLAND · ARGENTINA · BRASIL · PORTUGAL · DEUTSCHLAND · NEDERLAND · </span>
-      <span>FRANCE · ESPAÑA · ENGLAND · ARGENTINA · BRASIL · PORTUGAL · DEUTSCHLAND · NEDERLAND · </span>
+      <span>JUNE 11 – JULY 19, 2026 · 48 TEAMS · 104 MATCHES · 16 CITIES · 3 NATIONS · </span>
+      <span>JUNE 11 – JULY 19, 2026 · 48 TEAMS · 104 MATCHES · 16 CITIES · 3 NATIONS · </span>
     </div>
   </div>
 </section>
 
-<!-- ===== WHY (4 reasons) ===== -->
-<section class="why" id="why">
-  <div class="section-head">
+<!-- ===== OVERVIEW / 핵심 숫자 ===== -->
+<section class="overview" id="overview">
+  <div class="section-head section-head--center">
     <span class="section-head__idx">01</span>
-    <h2 class="section-head__title">왜 프랑스인가</h2>
-    <p class="section-head__sub">네 가지 근거가 같은 방향을 가리킵니다.</p>
+    <h2 class="section-head__title">한눈에 보는 대회</h2>
+    <p class="section-head__sub">32개국 체제를 넘어 48개국으로. 더 커지고, 더 길어지고, 더 많은 나라가 함께합니다.</p>
   </div>
 
-  <div class="why__grid">
-    <article class="reason">
-      <span class="reason__no">01</span>
-      <h3>모델 상위권</h3>
-      <p>대회 전 Opta 슈퍼컴퓨터는 스페인 16.1%, <strong>프랑스 13.0%</strong>, 잉글랜드 11.2%, 아르헨티나 10.4%로 평가.</p>
-    </article>
-    <article class="reason">
-      <span class="reason__no">02</span>
-      <h3>시장 단독 1위</h3>
-      <p>6월 18일 기준 베팅시장이 프랑스를 <strong>+410</strong>으로 단독 우승 1순위에 올림.</p>
-    </article>
-    <article class="reason">
-      <span class="reason__no">03</span>
-      <h3>음바페 폼</h3>
-      <p>세네갈을 <strong>3-1</strong>로 제압. 음바페가 멀티골을 기록하며 결정력을 증명.</p>
-    </article>
-    <article class="reason">
-      <span class="reason__no">04</span>
-      <h3>경쟁자 흔들림</h3>
-      <p>스페인 · 브라질 · 포르투갈이 첫 경기 <strong>무승부</strong>로 출발해 시장 신뢰가 일부 흔들림.</p>
-    </article>
+  <div class="facts-row" id="factsRow"><!-- injected --></div>
+
+  <div class="overview__format">
+    <div class="fmt">
+      <span class="fmt__step">01</span>
+      <h3>조별리그</h3>
+      <p>48개국을 12개 조로 나눠 각 조 4팀이 풀리그. 각 조 1·2위와 3위 중 상위 8팀, 총 32팀이 토너먼트에 진출합니다.</p>
+    </div>
+    <div class="fmt">
+      <span class="fmt__step">02</span>
+      <h3>새로운 32강</h3>
+      <p>사상 처음으로 <strong>라운드 오브 32(32강)</strong>가 신설. 32강 → 16강 → 8강 → 4강 → 결승으로 이어집니다.</p>
+    </div>
+    <div class="fmt">
+      <span class="fmt__step">03</span>
+      <h3>대장정의 막</h3>
+      <p>6월 11일 멕시코시티 <strong>아스테카</strong> 개막전을 시작으로, 7월 19일 뉴저지 <strong>메트라이프</strong> 결승까지 39일간의 여정.</p>
+    </div>
   </div>
 </section>
 
-<!-- ===== ODDS / 우승확률 바차트 ===== -->
-<section class="odds" id="odds">
+<!-- ===== HOSTS / 개최국 ===== -->
+<section class="hosts" id="hosts">
   <div class="section-head">
     <span class="section-head__idx">02</span>
+    <h2 class="section-head__title">세 나라가 함께</h2>
+    <p class="section-head__sub">사상 첫 3개국 공동 개최. 북미 대륙 전체가 하나의 거대한 경기장이 됩니다.</p>
+  </div>
+
+  <div class="hosts-row" id="hostsRow"><!-- injected --></div>
+</section>
+
+<!-- ===== CITIES / 도시 · 경기장 ===== -->
+<section class="cities" id="cities">
+  <div class="section-head">
+    <span class="section-head__idx">03</span>
+    <h2 class="section-head__title">개최 도시 · 경기장</h2>
+    <p class="section-head__sub">총 16개 도시에서 열리는 축제 — 그중 대회의 시작과 끝을 장식할 상징적인 무대들.</p>
+  </div>
+
+  <div class="cities-grid" id="citiesGrid"><!-- injected --></div>
+  <p class="cities__note">수용 인원은 대회 운영 기준의 근사치이며 좌석 구성에 따라 달라질 수 있습니다.</p>
+</section>
+
+<!-- ===== PLAYERS / 주요국 · 스타 선수 ===== -->
+<section class="players" id="players">
+  <div class="section-head">
+    <span class="section-head__idx">04</span>
+    <h2 class="section-head__title">주요국 · 스타 선수</h2>
+    <p class="section-head__sub">우승을 다투는 강팀들, 그리고 대회를 빛낼 각 나라의 간판 스타.</p>
+  </div>
+
+  <div class="players-grid" id="playersGrid"><!-- injected --></div>
+  <p class="players__note">선수 사진 출처: Wikimedia Commons (자유 이용 라이선스). 소속·포지션은 2025–26 기준.</p>
+</section>
+
+<!-- ============================================================
+     PREDICTION — 부가 섹션 (secondary)
+     ============================================================ -->
+<section class="pred-intro" id="prediction">
+  <div class="pred-intro__inner">
+    <span class="pred-intro__badge">부가 분석 · BONUS</span>
+    <h2 class="pred-intro__title">그래서, 누가 우승할까?</h2>
+    <p class="pred-intro__lede">
+      여기서부터는 Opta 모델 · 베팅시장(06.18) · FIFA 랭킹 · 1차전 결과를 종합한
+      <strong>주관적 우승 예측</strong>입니다. 대회 정보가 아닌, 재미로 보는 전망입니다.
+    </p>
+    <div class="pred-intro__pick">
+      <span class="pred-intro__flag">🇫🇷</span>
+      <div>
+        <span class="pred-intro__picklabel">현재 기준 우승 1순위</span>
+        <span class="pred-intro__pickteam">프랑스 <b data-count="17">0</b><i>%</i></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pred-wrap">
+
+<!-- ODDS -->
+<section class="odds" id="odds">
+  <div class="section-head">
+    <span class="section-head__idx">05</span>
     <h2 class="section-head__title">우승 확률 상위권</h2>
     <p class="section-head__sub">추정 우승 확률 · 막대를 스크롤 시 채워집니다.</p>
   </div>
-
-  <div class="odds__chart" id="oddsChart">
-    <!-- bars injected by JS -->
-  </div>
-
-  <p class="odds__note">
-    공식 FIFA 랭킹은 6월 11일 업데이트 기준이며 다음 업데이트는 7월 20일. Elo 계열 평가는 스페인 · 아르헨티나 · 프랑스 · 잉글랜드를 가장 높게 봅니다.
-  </p>
+  <div class="odds__chart" id="oddsChart"></div>
+  <p class="odds__note">Elo 계열 평가는 스페인 · 아르헨티나 · 프랑스 · 잉글랜드를 가장 높게 봅니다. FIFA 랭킹 다음 업데이트는 7월 20일.</p>
 </section>
 
-<!-- ===== COMPARE / 내 픽 vs Opta vs 시장 ===== -->
+<!-- COMPARE -->
 <section class="compare" id="compare">
   <div class="section-head">
-    <span class="section-head__idx">03</span>
+    <span class="section-head__idx">06</span>
     <h2 class="section-head__title">내 픽 vs 모델 vs 시장</h2>
-    <p class="section-head__sub">세 관점이 어디서 갈리는가 — 내 추정(시안)과 대회 전 Opta 슈퍼컴퓨터(앰버)를 나란히, 우측엔 06.18 베팅시장 배당.</p>
+    <p class="section-head__sub">내 추정(시안)과 대회 전 Opta 슈퍼컴퓨터(앰버)를 나란히, 우측엔 06.18 베팅시장 배당.</p>
   </div>
-
-  <div class="compare__chart" id="compareChart">
-    <!-- rows injected by JS -->
-  </div>
-
-  <p class="compare__note">
-    핵심 차이: Opta는 <strong>스페인(16.1%)</strong>을 1위로, 프랑스는 4위권(13.0%)으로 봤지만,
-    1차전 결과와 시장(<strong>프랑스 +410 단독 1위</strong>)을 반영하면 내 픽은 프랑스가 근소하게 앞섭니다.
-  </p>
+  <div class="compare__chart" id="compareChart"></div>
+  <p class="compare__note">Opta는 <strong>스페인(16.1%)</strong>을 1위로, 프랑스를 4위권(13.0%)으로 봤지만, 1차전 결과와 시장(<strong>프랑스 +410</strong>)을 반영하면 내 픽은 프랑스가 근소하게 앞섭니다.</p>
 </section>
 
-<!-- ===== KICKOFF / 1차전 출발 현황 ===== -->
+<!-- KICKOFF -->
 <section class="kickoff" id="kickoff">
   <div class="section-head">
-    <span class="section-head__idx">04</span>
+    <span class="section-head__idx">07</span>
     <h2 class="section-head__title">1차전 출발 현황</h2>
     <p class="section-head__sub">우승 후보들의 첫 단추. 승리 출발과 무승부 출발이 시장 신뢰를 갈랐습니다.</p>
   </div>
-
   <div class="kickoff__grid">
     <div class="kgroup kgroup--win">
-      <div class="kgroup__head">
-        <span class="kgroup__badge">WIN</span>
-        <h3>승점 3 출발 · <span id="kickoffWinCount">0</span>팀</h3>
-      </div>
+      <div class="kgroup__head"><span class="kgroup__badge">WIN</span><h3>승점 3 출발 · <span id="kickoffWinCount">0</span>팀</h3></div>
       <div class="kgroup__chips" id="kickoffWin"></div>
     </div>
     <div class="kgroup kgroup--draw">
-      <div class="kgroup__head">
-        <span class="kgroup__badge kgroup__badge--draw">DRAW</span>
-        <h3>무승부 출발 · <span id="kickoffDrawCount">0</span>팀</h3>
-      </div>
+      <div class="kgroup__head"><span class="kgroup__badge kgroup__badge--draw">DRAW</span><h3>무승부 출발 · <span id="kickoffDrawCount">0</span>팀</h3></div>
       <div class="kgroup__chips" id="kickoffDraw"></div>
       <p class="kgroup__foot">스페인·브라질·포르투갈·네덜란드 — 우승 후보 4팀이 첫 경기 무승부로 출발해 시장 신뢰가 일부 흔들림.</p>
     </div>
   </div>
 </section>
 
-<!-- ===== GROUPS / 조별리그 ===== -->
+<!-- GROUPS -->
 <section class="groups" id="groups">
   <div class="section-head">
-    <span class="section-head__idx">05</span>
+    <span class="section-head__idx">08</span>
     <h2 class="section-head__title">예상 조별리그</h2>
-    <p class="section-head__sub">2026 본선 실제 조 추첨(각 조 4팀) 기준. 48개국 체제 — 각 조 1·2위 + 12개 조 3위 중 상위 8팀이 32강 진출.</p>
+    <p class="section-head__sub">2026 본선 실제 조 추첨(각 조 4팀) 기준 · 예상 순위. 각 조 1·2위 + 3위 중 상위 8팀이 32강 진출.</p>
   </div>
-
   <div class="groups__legend">
     <span class="lg lg--1">1위 진출</span>
     <span class="lg lg--2">2위 진출</span>
@@ -206,62 +223,43 @@
     <span class="lg lg--4">4위 · 탈락</span>
     <span class="lg lg--hot">접전 조</span>
   </div>
-
-  <div class="groups__grid" id="groupsGrid">
-    <!-- cards injected by JS -->
-  </div>
+  <div class="groups__grid" id="groupsGrid"></div>
 </section>
 
-<!-- ===== BRACKET / 토너먼트 ===== -->
+<!-- BRACKET -->
 <section class="bracket" id="bracket">
   <div class="section-head">
-    <span class="section-head__idx">06</span>
+    <span class="section-head__idx">09</span>
     <h2 class="section-head__title">토너먼트 브래킷</h2>
     <p class="section-head__sub">32강부터 결승까지 · 예상 승자가 빛나는 라인으로 이어집니다. 빅매치엔 코멘트가 붙습니다. ← 좌우로 스크롤</p>
   </div>
-
-  <div class="bracket__scroll">
-    <div class="bracket__board" id="bracketBoard">
-      <!-- rounds injected by JS -->
-    </div>
-  </div>
+  <div class="bracket__scroll"><div class="bracket__board" id="bracketBoard"></div></div>
 </section>
 
-<!-- ===== FINAL / 결승 ===== -->
+<!-- FINAL -->
 <section class="final" id="final">
   <div class="final__bg" aria-hidden="true"><span class="orb orb--amber"></span></div>
   <div class="section-head section-head--center">
-    <span class="section-head__idx">07</span>
+    <span class="section-head__idx">10</span>
     <h2 class="section-head__title">결승 예측</h2>
   </div>
-
   <div class="final__match">
     <div class="final__team final__team--win">
-      <span class="final__flag">🇫🇷</span>
-      <span class="final__name">FRANCE</span>
-      <span class="final__tag">WINNER</span>
+      <span class="final__flag">🇫🇷</span><span class="final__name">FRANCE</span><span class="final__tag">WINNER</span>
     </div>
-
     <div class="final__score">
       <span class="final__scoreboard"><b>2</b><i>–</i><b>1</b></span>
       <span class="final__vs">예상 스코어</span>
       <span class="final__trophy" aria-hidden="true">🏆</span>
     </div>
-
     <div class="final__team">
-      <span class="final__flag">🇦🇷</span>
-      <span class="final__name">ARGENTINA</span>
-      <span class="final__tag final__tag--muted">준우승</span>
+      <span class="final__flag">🇦🇷</span><span class="final__name">ARGENTINA</span><span class="final__tag final__tag--muted">준우승</span>
     </div>
   </div>
-
   <p class="final__verdict">
-    프랑스를 고르는 핵심은 <strong>“상한”보다 “상한 + 안정성”</strong>입니다. 스페인은 모델상 최상위지만
-    야말 컨디션과 첫 경기 무득점이 변수, 잉글랜드는 공격력은 좋으나 수비 리스크가 남고, 아르헨티나는 가장 강한 토너먼트 DNA를 가졌지만
-    연속 우승 부담이 큽니다.
+    프랑스를 고르는 핵심은 <strong>“상한”보다 “상한 + 안정성”</strong>. 스페인은 모델상 최상위지만 야말 컨디션과 첫 경기 무득점이 변수,
+    잉글랜드는 공격력은 좋으나 수비 리스크, 아르헨티나는 토너먼트 DNA는 최고지만 연속 우승 부담이 큽니다.
   </p>
-
-  <!-- Final standings -->
   <div class="standings" id="standings">
     <h3 class="standings__title">최종 예상 순위</h3>
     <ol class="standings__list">
@@ -275,16 +273,30 @@
   </div>
 </section>
 
-<!-- ===== KOREA spotlight ===== -->
+<!-- SCENARIO -->
+<section class="scenario" id="scenario">
+  <div class="section-head section-head--center">
+    <span class="section-head__idx">11</span>
+    <h2 class="section-head__title">시나리오: 만약 야말이 돌아온다면</h2>
+    <p class="section-head__sub">가장 큰 변수 하나가 풀렸을 때 상위권 우승 확률이 어떻게 움직이는지 — 버튼으로 전환해 보세요.</p>
+  </div>
+  <div class="scenario__toggle" role="tablist" aria-label="시나리오 선택">
+    <button class="scn-btn" data-scenario="base" role="tab">현재 기준</button>
+    <button class="scn-btn" data-scenario="yamal" role="tab">야말 정상 복귀 시</button>
+  </div>
+  <div class="scenario__panel">
+    <div class="scenario__bars" id="scenarioBars" aria-live="polite"></div>
+    <p class="scenario__note" id="scenarioNote"></p>
+  </div>
+</section>
+
+<!-- KOREA -->
 <section class="korea" id="korea">
   <div class="korea__inner">
     <span class="korea__flag" aria-hidden="true">🇰🇷</span>
     <div class="korea__body">
       <h2>대한민국 — 16강 예상</h2>
-      <p>
-        승점 3으로 출발(예상 A조 2위). 32강 <strong>캐나다전</strong>까지는 충분히 해볼 만합니다.
-        다만 네덜란드 · 모로코 승자와 만나는 <strong>16강부터 객관 전력상 난도</strong>가 크게 올라갑니다.
-      </p>
+      <p>A조 2위로 출발 예상. 32강 <strong>캐나다전</strong>까지는 충분히 해볼 만하지만, 네덜란드 · 모로코 승자와 만나는 <strong>16강부터 난도</strong>가 크게 올라갑니다.</p>
       <div class="korea__path">
         <span class="korea__step korea__step--win">조별 2위 ✓</span>
         <span class="korea__arrow">→</span>
@@ -296,53 +308,19 @@
   </div>
 </section>
 
-<!-- ===== VARIABLES ===== -->
-<section class="variables" id="variables">
-  <div class="section-head">
-    <span class="section-head__idx">08</span>
-    <h2 class="section-head__title">가장 큰 변수</h2>
-    <p class="section-head__sub">우승 후보 5팀이 안고 있는 리스크. 이 중 하나가 풀리면 판도가 바뀝니다.</p>
-  </div>
-
-  <div class="variables__grid">
-    <article class="vcard"><span class="vcard__team">🇪🇸 스페인</span><h3>야말 컨디션</h3><p>카보베르데전 27슈팅 · xG 2.29에도 0-0. 정상 폼 복귀 시 다시 1위권.</p></article>
-    <article class="vcard"><span class="vcard__team">🇧🇷 브라질</span><h3>전술 수정</h3><p>모로코전 1-1 경고등. 전반 경기력 흔들림을 직시해야 한다는 목소리.</p></article>
-    <article class="vcard"><span class="vcard__team">🇵🇹 포르투갈</span><h3>공격 구조</h3><p>DR콩고전 1-1로 하락. 재능은 충분하나 구조적 답답함.</p></article>
-    <article class="vcard"><span class="vcard__team">🏴󠁧󠁢󠁥󠁮󠁧󠁿 잉글랜드</span><h3>수비 안정성</h3><p>크로아티아전 4-2로 공격력 확인. 남은 리스크는 수비.</p></article>
-    <article class="vcard"><span class="vcard__team">🇦🇷 아르헨티나</span><h3>체력 관리</h3><p>알제리전 3-0, 메시 해트트릭. 연속 우승 부담과 체력이 변수.</p></article>
-  </div>
-</section>
-
-<!-- ===== SCENARIO / 동률 시나리오 토글 ===== -->
-<section class="scenario" id="scenario">
-  <div class="section-head section-head--center">
-    <span class="section-head__idx">09</span>
-    <h2 class="section-head__title">시나리오: 만약 야말이 돌아온다면</h2>
-    <p class="section-head__sub">가장 큰 변수 하나가 풀렸을 때 상위권 우승 확률이 어떻게 움직이는지 — 버튼으로 전환해 보세요.</p>
-  </div>
-
-  <div class="scenario__toggle" role="tablist" aria-label="시나리오 선택">
-    <button class="scn-btn" data-scenario="base" role="tab">현재 기준</button>
-    <button class="scn-btn" data-scenario="yamal" role="tab">야말 정상 복귀 시</button>
-  </div>
-
-  <div class="scenario__panel">
-    <div class="scenario__bars" id="scenarioBars" aria-live="polite"></div>
-    <p class="scenario__note" id="scenarioNote"></p>
-  </div>
-</section>
+</div><!-- /.pred-wrap -->
 
 </main>
 
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
-  <div class="footer__big" aria-hidden="true">FRANCE&nbsp;2026</div>
+  <div class="footer__big" aria-hidden="true">WORLD&nbsp;CUP&nbsp;2026</div>
   <div class="footer__row">
     <p class="footer__disc">
-      ※ 본 페이지는 Opta 슈퍼컴퓨터 · 베팅시장(06.18) · FIFA 랭킹(06.11) · Elo 평가 및 1차전 결과를 종합한
-      <strong>주관적 예측</strong>입니다. 실제 결과를 보장하지 않습니다.
+      대회 정보(개최국 · 일정 · 포맷 · 도시 · 경기장 · 선수)는 FIFA 및 공개 자료 기준의 사실이며,
+      <strong>우승 예측 섹션은 주관적 전망</strong>으로 실제 결과를 보장하지 않습니다. 선수 사진 © Wikimedia Commons, 도시 사진 © Unsplash.
     </p>
-    <p class="footer__meta">UPDATED 06.18 · DARK OLED BROADCAST EDITION</p>
+    <p class="footer__meta">FIFA WORLD CUP 2026 · DARK OLED BROADCAST EDITION</p>
   </div>
 </footer>
 

@@ -7,7 +7,48 @@
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ----------------------------------------------------------
-     DATA
+     DATA — TOURNAMENT (primary)
+     ---------------------------------------------------------- */
+  // 공동 개최 3개국
+  const HOSTS = [
+    { name: "멕시코", en: "MEXICO", flag: "🇲🇽", cities: 3, note: "개막전 개최 · 사상 첫 3회 월드컵 개최 도시" },
+    { name: "미국", en: "USA", flag: "🇺🇸", cities: 11, note: "결승 개최 · 16개 도시 중 11개 도시 담당" },
+    { name: "캐나다", en: "CANADA", flag: "🇨🇦", cities: 2, note: "토론토 · 밴쿠버 첫 월드컵 본선 개최" }
+  ];
+
+  // 핵심 숫자
+  const FACTS = [
+    { num: 48, label: "참가국", sub: "32개국에서 확대" },
+    { num: 104, label: "경기 수", sub: "64경기 → 104경기" },
+    { num: 16, label: "개최 도시", sub: "미 11 · 멕 3 · 캐 2" },
+    { num: 12, label: "조 편성", sub: "각 조 4팀" }
+  ];
+
+  // 주요 개최 도시 · 경기장 (실사진은 로컬 assets/img/cities)
+  const CITIES = [
+    { city: "멕시코시티", country: "멕시코", flag: "🇲🇽", stadium: "에스타디오 아스테카", cap: "≈ 80,800", img: "assets/img/cities/mexicocity.jpg", tag: "개막전", note: "1970·1986·2026 — 세 번의 월드컵을 치르는 최초의 경기장." },
+    { city: "뉴욕 / 뉴저지", country: "미국", flag: "🇺🇸", stadium: "메트라이프 스타디움", cap: "≈ 82,500", img: "assets/img/cities/newyork.jpg", tag: "결승", note: "2026년 7월 19일, 대망의 결승전이 열리는 무대." },
+    { city: "로스앤젤레스", country: "미국", flag: "🇺🇸", stadium: "소파이 스타디움", cap: "≈ 70,500", img: "assets/img/cities/losangeles.jpg", tag: "", note: "약 50억 달러, 역대 최고 비용으로 지어진 최첨단 돔." },
+    { city: "샌프란시스코 베이", country: "미국", flag: "🇺🇸", stadium: "리바이스 스타디움", cap: "≈ 70,900", img: "assets/img/cities/sanfrancisco.jpg", tag: "", note: "실리콘밸리 한복판의 친환경 스마트 경기장." },
+    { city: "마이애미", country: "미국", flag: "🇺🇸", stadium: "하드록 스타디움", cap: "≈ 65,300", img: "assets/img/cities/miami.jpg", tag: "3·4위전", note: "라틴 열기가 가득한 남부 거점 도시." },
+    { city: "토론토", country: "캐나다", flag: "🇨🇦", stadium: "BMO 필드", cap: "≈ 45,700", img: "assets/img/cities/toronto.jpg", tag: "", note: "캐나다 대표팀의 홈, 단풍의 도시." },
+    { city: "밴쿠버", country: "캐나다", flag: "🇨🇦", stadium: "BC 플레이스", cap: "≈ 54,500", img: "assets/img/cities/vancouver.jpg", tag: "", note: "태평양 연안, 개폐식 지붕의 랜드마크 경기장." }
+  ];
+
+  // 주요국 · 스타 선수 (사진은 위키미디어 기반 실사진, 로컬 저장)
+  const PLAYERS = [
+    { team: "프랑스", flag: "🇫🇷", player: "킬리안 음바페", pos: "FW", club: "레알 마드리드", img: "assets/img/players/mbappe.jpg", blurb: "압도적 결정력. 이번 대회 우승의 핵심 키." },
+    { team: "아르헨티나", flag: "🇦🇷", player: "리오넬 메시", pos: "FW", club: "인터 마이애미", img: "assets/img/players/messi.jpg", blurb: "디펜딩 챔피언의 상징. 역대 최다 타이 6번째 월드컵." },
+    { team: "스페인", flag: "🇪🇸", player: "라민 야말", pos: "WG", club: "FC 바르셀로나", img: "assets/img/players/yamal.jpg", blurb: "2025 발롱도르 2위. 첫 월드컵에 나서는 천재." },
+    { team: "잉글랜드", flag: "ENG_FLAG", player: "주드 벨링엄", pos: "MF", club: "레알 마드리드", img: "assets/img/players/bellingham.jpg", blurb: "중원을 지배하는 전천후 미드필더." },
+    { team: "브라질", flag: "🇧🇷", player: "비니시우스 주니오르", pos: "FW", club: "레알 마드리드", img: "assets/img/players/vinicius.jpg", blurb: "측면을 찢는 폭발적인 드리블러." },
+    { team: "포르투갈", flag: "🇵🇹", player: "크리스티아누 호날두", pos: "FW", club: "알 나스르", img: "assets/img/players/ronaldo.jpg", blurb: "41세의 라스트 댄스. 살아있는 전설." },
+    { team: "독일", flag: "🇩🇪", player: "자말 무시알라", pos: "MF", club: "바이에른 뮌헨", img: "assets/img/players/musiala.jpg", blurb: "부상 복귀 후 합류한 독일의 창의성." },
+    { team: "네덜란드", flag: "🇳🇱", player: "버질 반다이크", pos: "DF", club: "리버풀", img: "assets/img/players/vandijk.jpg", blurb: "세계 최정상급 수비수이자 주장." }
+  ];
+
+  /* ----------------------------------------------------------
+     DATA — PREDICTION (secondary)
      ---------------------------------------------------------- */
   const ODDS = [
     { team: "프랑스", flag: "🇫🇷", pct: 17, cmt: "전력·토너먼트 경험·음바페 폼·시장 반영 모두 최상위", lead: true },
@@ -146,6 +187,91 @@
   // store as a token and resolve to the real emoji at render time.
   const ENG = "\u{1F3F4}\u{E0067}\u{E0062}\u{E0065}\u{E006E}\u{E0067}\u{E007F}";
   const flagOf = (f) => (f === "ENG_FLAG" ? ENG : f);
+
+  /* ----------------------------------------------------------
+     render: FACTS (count-up stat row)
+     ---------------------------------------------------------- */
+  function renderFacts() {
+    const root = $("#factsRow");
+    if (!root) return;
+    FACTS.forEach((f, i) => {
+      const card = el("div", "fact reveal");
+      card.style.transitionDelay = i * 0.07 + "s";
+      card.innerHTML =
+        '<span class="fact__num" data-count="' + f.num + '">0</span>' +
+        '<span class="fact__label">' + f.label + "</span>" +
+        '<span class="fact__sub">' + f.sub + "</span>";
+      root.appendChild(card);
+    });
+  }
+
+  /* ----------------------------------------------------------
+     render: HOSTS
+     ---------------------------------------------------------- */
+  function renderHosts() {
+    const root = $("#hostsRow");
+    if (!root) return;
+    HOSTS.forEach((h, i) => {
+      const card = el("div", "host reveal");
+      card.style.transitionDelay = i * 0.08 + "s";
+      card.innerHTML =
+        '<span class="host__flag">' + h.flag + "</span>" +
+        '<div class="host__body"><span class="host__en">' + h.en + "</span>" +
+        '<h3 class="host__name">' + h.name + "</h3>" +
+        '<span class="host__cities">' + h.cities + "개 도시</span>" +
+        '<p class="host__note">' + h.note + "</p></div>";
+      root.appendChild(card);
+    });
+  }
+
+  /* ----------------------------------------------------------
+     render: CITIES & stadiums (photo cards)
+     ---------------------------------------------------------- */
+  function renderCities() {
+    const root = $("#citiesGrid");
+    if (!root) return;
+    CITIES.forEach((c, i) => {
+      const card = el("article", "citycard reveal" + (c.tag ? " citycard--feat" : ""));
+      card.style.transitionDelay = (i % 3) * 0.06 + "s";
+      const tag = c.tag ? '<span class="citycard__tag">' + c.tag + "</span>" : "";
+      card.innerHTML =
+        '<div class="citycard__media">' +
+          '<img loading="lazy" src="' + c.img + '" alt="' + c.city + " 전경" + '" />' +
+          tag +
+        "</div>" +
+        '<div class="citycard__body">' +
+          '<div class="citycard__top"><span class="citycard__flag">' + c.flag + "</span>" +
+          '<span class="citycard__city">' + c.city + "</span></div>" +
+          '<h3 class="citycard__stadium">' + c.stadium + "</h3>" +
+          '<span class="citycard__cap">수용 ' + c.cap + "</span>" +
+          '<p class="citycard__note">' + c.note + "</p>" +
+        "</div>";
+      root.appendChild(card);
+    });
+  }
+
+  /* ----------------------------------------------------------
+     render: PLAYERS (star player photo cards)
+     ---------------------------------------------------------- */
+  function renderPlayers() {
+    const root = $("#playersGrid");
+    if (!root) return;
+    PLAYERS.forEach((p, i) => {
+      const card = el("article", "pcard reveal");
+      card.style.transitionDelay = (i % 4) * 0.06 + "s";
+      card.innerHTML =
+        '<div class="pcard__media"><img loading="lazy" src="' + p.img + '" alt="' + p.player + '" />' +
+          '<span class="pcard__pos">' + p.pos + "</span>" +
+        "</div>" +
+        '<div class="pcard__body">' +
+          '<div class="pcard__nat"><span class="pcard__flag">' + flagOf(p.flag) + "</span>" + p.team + "</div>" +
+          '<h3 class="pcard__name">' + p.player + "</h3>" +
+          '<span class="pcard__club">' + p.club + "</span>" +
+          '<p class="pcard__blurb">' + p.blurb + "</p>" +
+        "</div>";
+      root.appendChild(card);
+    });
+  }
 
   /* ----------------------------------------------------------
      render: ODDS bars
@@ -312,42 +438,12 @@
   /* ----------------------------------------------------------
      scroll reveal + bar fill (IntersectionObserver)
      ---------------------------------------------------------- */
-  function initReveal() {
-    const els = document.querySelectorAll(".reveal");
-    const fillSel = ".bar__fill, .cmp__fill";
-    if (reduceMotion || !("IntersectionObserver" in window)) {
-      els.forEach((e) => {
-        e.classList.add("is-in");
-        e.querySelectorAll(fillSel).forEach((f) => (f.style.width = f.dataset.w + "%"));
-      });
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          const node = entry.target;
-          node.classList.add("is-in");
-          node.querySelectorAll(fillSel).forEach((f) => {
-            requestAnimationFrame(() => (f.style.width = f.dataset.w + "%"));
-          });
-          obs.unobserve(node);
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
-    );
-    els.forEach((e) => io.observe(e));
-  }
-
-  /* ----------------------------------------------------------
-     hero count-up
-     ---------------------------------------------------------- */
-  function countUp() {
-    const node = document.querySelector("[data-count]");
-    if (!node) return;
+  function animateCount(node) {
+    if (node.dataset.done) return;
+    node.dataset.done = "1";
     const target = parseInt(node.dataset.count, 10);
     if (reduceMotion) { node.textContent = target; return; }
-    const dur = 1400;
+    const dur = 1300;
     let start = null;
     function step(ts) {
       if (start === null) start = ts;
@@ -357,6 +453,51 @@
       if (p < 1) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
+  }
+
+  function fillAndCount(node) {
+    node.querySelectorAll(".bar__fill, .cmp__fill").forEach((f) => {
+      requestAnimationFrame(() => (f.style.width = f.dataset.w + "%"));
+    });
+    node.querySelectorAll("[data-count]").forEach(animateCount);
+    if (node.dataset.count) animateCount(node);
+  }
+
+  function initReveal() {
+    const els = document.querySelectorAll(".reveal");
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      els.forEach((e) => { e.classList.add("is-in"); fillAndCount(e); });
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const node = entry.target;
+          node.classList.add("is-in");
+          fillAndCount(node);
+          obs.unobserve(node);
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+    els.forEach((e) => io.observe(e));
+  }
+
+  /* ----------------------------------------------------------
+     hero count-up (fires immediately, not scroll-gated)
+     ---------------------------------------------------------- */
+  function countUp() {
+    document.querySelectorAll(".hero [data-count]").forEach(animateCount);
+    // pred-intro pick count-up fires when scrolled into view
+    const pick = document.querySelector(".pred-intro [data-count]");
+    if (pick) {
+      if (reduceMotion || !("IntersectionObserver" in window)) { animateCount(pick); return; }
+      const io = new IntersectionObserver((es, obs) => {
+        es.forEach((e) => { if (e.isIntersecting) { animateCount(pick); obs.disconnect(); } });
+      }, { threshold: 0.5 });
+      io.observe(pick);
+    }
   }
 
   /* ----------------------------------------------------------
@@ -400,12 +541,19 @@
      boot
      ---------------------------------------------------------- */
   function boot() {
+    // tournament (primary)
+    renderFacts();
+    renderHosts();
+    renderCities();
+    renderPlayers();
+    // prediction (secondary)
     renderOdds();
     renderCompare();
     renderKickoff();
     renderGroups();
     renderBracket();
     renderScenario();
+    // interactions
     initReveal();
     initNav();
     countUp();
