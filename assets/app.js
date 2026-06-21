@@ -110,14 +110,15 @@
     ]}
   ];
 
-  // 주목할 라이징 스타 — 차세대 유망주 + 이적/관심 정보 (link는 관심설, 확정 아님)
+  // 주목할 라이징 스타 — 차세대 유망주 + 이적/관심 정보 (2026년 6월 기준)
+  // linkType: "done"(이적 완료) | "deal"(합의·임박) | "rumor"(관심·추진설)
   const RISING = [
-    { player: "이강인", flag: "🇰🇷", pos: "MF", born: "2001", club: "파리 생제르맹", link: "아틀레티코 마드리드 관심설", img: "assets/img/players/leekangin.jpg", blurb: "왼발 킥과 탈압박을 갖춘 한국의 차세대 에이스. 출전 시간을 늘릴 새 둥지를 찾는다는 관측." },
-    { player: "빅토르 무뇨스", flag: "🇪🇸", pos: "WG", born: "2005", club: "비야레알", link: "유럽 빅클럽 주시 대상", img: "assets/img/players/munoz.jpg", blurb: "라리가가 주목하는 스페인산 윙어. 폭발적인 속도와 돌파로 단숨에 떠오른 신예." },
-    { player: "얀 디오망데", flag: "🇨🇮", pos: "WG", born: "2006", club: "RB 라이프치히", link: "분데스리가 차세대 주목주", img: "assets/img/players/diomande.jpg", blurb: "코트디부아르 출신의 폭발적인 측면 자원. 라이프치히가 일찌감치 영입한 원석." },
-    { player: "아르다 귈레르", flag: "🇹🇷", pos: "MF", born: "2005", club: "레알 마드리드", link: "주전 도약 기대주", img: "assets/img/players/guler.jpg", blurb: "‘터키의 메시’로 불리는 왼발 플레이메이커. 레알에서 입지를 넓혀가는 중." },
-    { player: "케난 이을드즈", flag: "🇹🇷", pos: "MF", born: "2005", club: "유벤투스", link: "유럽 강호 관심 대상", img: "assets/img/players/yildiz.jpg", blurb: "유벤투스의 10번을 물려받은 차세대 간판. 창의성과 결정력을 겸비." },
-    { player: "바렌 자이르-에메리", flag: "🇫🇷", pos: "MF", born: "2006", club: "파리 생제르맹", link: "세계가 주목하는 영건", img: "assets/img/players/zaireemery.jpg", blurb: "역대 최연소 기록을 갈아치운 PSG의 중원 핵심. 성숙한 경기 운영이 강점." }
+    { player: "빅토르 무뇨스", flag: "🇪🇸", pos: "WG", born: "2005", club: "오사수나", linkType: "done", link: "→ 리버풀 이적 완료 (€40m)", img: "assets/img/players/munoz.jpg", blurb: "‘음바페보다 빠르다’는 평을 들은 스페인산 윙어. 오사수나에서의 폭발적 활약으로 살라의 후계자를 찾던 리버풀행을 확정지었다." },
+    { player: "얀 디오망데", flag: "🇨🇮", pos: "WG", born: "2006", club: "RB 라이프치히", linkType: "rumor", link: "리버풀 강력 추진설 (PSG·맨유 경쟁)", img: "assets/img/players/diomande.jpg", blurb: "월드컵 초반 돌풍을 일으킨 코트디부아르의 19세 윙어. 리버풀이 약 €100m 규모로 영입을 밀어붙이는 가운데 PSG·바이에른도 눈독을 들인다." },
+    { player: "이강인", flag: "🇰🇷", pos: "MF", born: "2001", club: "파리 생제르맹", linkType: "deal", link: "아틀레티코 마드리드 합의·이적 임박", img: "assets/img/players/leekangin.jpg", blurb: "PSG에서 두 번의 챔피언스리그를 들어올린 한국의 에이스. 출전 시간을 위해 스페인 복귀를 택했고, 아틀레티코와 개인 합의를 마친 것으로 전해진다." },
+    { player: "케난 이을드즈", flag: "🇹🇷", pos: "MF", born: "2005", club: "유벤투스", linkType: "rumor", link: "맨유·아스널 관심 (유벤투스 비매각)", img: "assets/img/players/yildiz.jpg", blurb: "델 피에로의 10번을 물려받은 유벤투스의 미래. 프리미어리그 빅클럽들이 줄을 섰지만, 유벤투스는 2030년까지 재계약하며 ‘비매각’으로 못박았다." },
+    { player: "바렌 자이르-에메리", flag: "🇫🇷", pos: "MF", born: "2006", club: "파리 생제르맹", linkType: "rumor", link: "맨체스터 유나이티드 관심설", img: "assets/img/players/zaireemery.jpg", blurb: "역대 최연소 기록을 갈아치운 PSG의 중원 핵심. 맨유가 약 €70~80m 규모의 영입을 타진한다는 보도가 이어진다." },
+    { player: "아르다 귈레르", flag: "🇹🇷", pos: "MF", born: "2005", club: "레알 마드리드", linkType: "stay", link: "레알 주전 정착 (UCL 영플레이어상)", img: "assets/img/players/guler.jpg", blurb: "‘터키의 메시’로 불리는 왼발 플레이메이커. 사비 알론소 체제에서 음바페 뒤 10번으로 자리잡으며 UCL 영플레이어상까지 받았다." }
   ];
 
   /* ----------------------------------------------------------
@@ -407,9 +408,12 @@
   function renderRising() {
     const root = $("#risingGrid");
     if (!root) return;
+    // 이적 상태별 태그 라벨 (색상은 CSS의 data-link 속성으로 분기)
+    const LINK_LABEL = { done: "이적", deal: "합의", rumor: "관심", stay: "잔류" };
     RISING.forEach((p, i) => {
       const card = el("article", "rcard reveal");
       card.style.transitionDelay = (i % 3) * 0.06 + "s";
+      const lt = p.linkType || "rumor";
       card.innerHTML =
         '<div class="rcard__media"><img loading="lazy" src="' + p.img + '" alt="' + p.player + '" />' +
           '<span class="rcard__pos">' + p.pos + "</span>" +
@@ -419,7 +423,7 @@
           '<div class="rcard__nat"><span class="rcard__flag">' + flagOf(p.flag) + "</span>" + p.club + "</div>" +
           '<h3 class="rcard__name">' + p.player + "</h3>" +
           '<p class="rcard__blurb">' + p.blurb + "</p>" +
-          '<div class="rcard__link"><span class="rcard__link-tag">관심</span>' + p.link + "</div>" +
+          '<div class="rcard__link" data-link="' + lt + '"><span class="rcard__link-tag">' + LINK_LABEL[lt] + "</span>" + p.link + "</div>" +
         "</div>";
       root.appendChild(card);
     });

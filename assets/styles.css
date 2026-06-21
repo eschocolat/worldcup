@@ -734,7 +734,12 @@ section { position: relative; z-index: 2; padding: clamp(4.5rem, 10vw, 8rem) cla
 .rcard__name { font-family: var(--display-ko); font-weight: 400; font-size: 1.3rem; margin: 0.3rem 0 0.4rem; }
 .rcard__blurb { font-size: 0.8rem; color: var(--fg-dim); flex: 1; }
 .rcard__link { margin-top: 0.9rem; padding-top: 0.75rem; border-top: 1px solid var(--line); display: flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; color: var(--fg); }
-.rcard__link-tag { flex-shrink: 0; font-family: var(--grotesk); font-weight: 700; font-size: 0.64rem; letter-spacing: 0.05em; padding: 0.12rem 0.45rem; border-radius: 5px; background: rgba(0,229,212,0.14); border: 1px solid rgba(0,229,212,0.4); color: var(--cyan); text-transform: uppercase; }
+.rcard__link-tag { flex-shrink: 0; font-family: var(--grotesk); font-weight: 700; font-size: 0.64rem; letter-spacing: 0.05em; padding: 0.12rem 0.45rem; border-radius: 5px; text-transform: uppercase; }
+/* 이적 상태별 태그 색상 */
+.rcard__link[data-link="done"] .rcard__link-tag { background: rgba(64,221,148,0.16); border: 1px solid rgba(64,221,148,0.45); color: #40dd94; }
+.rcard__link[data-link="deal"] .rcard__link-tag { background: rgba(255,179,48,0.16); border: 1px solid rgba(255,179,48,0.45); color: var(--amber); }
+.rcard__link[data-link="rumor"] .rcard__link-tag { background: rgba(0,229,212,0.14); border: 1px solid rgba(0,229,212,0.4); color: var(--cyan); }
+.rcard__link[data-link="stay"] .rcard__link-tag { background: rgba(255,255,255,0.07); border: 1px solid var(--line-2); color: var(--fg-dim); }
 .rising__note { margin: 1.4rem 0 0; font-size: 0.76rem; color: var(--fg-faint); }
 @media (max-width: 720px) { .rising-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 420px) { .rising-grid { grid-template-columns: 1fr; } }
