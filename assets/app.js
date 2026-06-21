@@ -35,16 +35,79 @@
     { city: "밴쿠버", country: "캐나다", flag: "🇨🇦", stadium: "BC 플레이스", cap: "≈ 54,500", img: "assets/img/cities/vancouver.jpg", tag: "", note: "태평양 연안, 개폐식 지붕의 랜드마크 경기장." }
   ];
 
-  // 주요국 · 스타 선수 (사진은 위키미디어 기반 실사진, 로컬 저장)
-  const PLAYERS = [
-    { team: "프랑스", flag: "🇫🇷", player: "킬리안 음바페", pos: "FW", club: "레알 마드리드", img: "assets/img/players/mbappe.jpg", blurb: "압도적 결정력. 이번 대회 우승의 핵심 키." },
-    { team: "아르헨티나", flag: "🇦🇷", player: "리오넬 메시", pos: "FW", club: "인터 마이애미", img: "assets/img/players/messi.jpg", blurb: "디펜딩 챔피언의 상징. 역대 최다 타이 6번째 월드컵." },
-    { team: "스페인", flag: "🇪🇸", player: "라민 야말", pos: "WG", club: "FC 바르셀로나", img: "assets/img/players/yamal.jpg", blurb: "2025 발롱도르 2위. 첫 월드컵에 나서는 천재." },
-    { team: "잉글랜드", flag: "ENG_FLAG", player: "주드 벨링엄", pos: "MF", club: "레알 마드리드", img: "assets/img/players/bellingham.jpg", blurb: "중원을 지배하는 전천후 미드필더." },
-    { team: "브라질", flag: "🇧🇷", player: "비니시우스 주니오르", pos: "FW", club: "레알 마드리드", img: "assets/img/players/vinicius.jpg", blurb: "측면을 찢는 폭발적인 드리블러." },
-    { team: "포르투갈", flag: "🇵🇹", player: "크리스티아누 호날두", pos: "FW", club: "알 나스르", img: "assets/img/players/ronaldo.jpg", blurb: "41세의 라스트 댄스. 살아있는 전설." },
-    { team: "독일", flag: "🇩🇪", player: "자말 무시알라", pos: "MF", club: "바이에른 뮌헨", img: "assets/img/players/musiala.jpg", blurb: "부상 복귀 후 합류한 독일의 창의성." },
-    { team: "네덜란드", flag: "🇳🇱", player: "버질 반다이크", pos: "DF", club: "리버풀", img: "assets/img/players/vandijk.jpg", blurb: "세계 최정상급 수비수이자 주장." }
+  // 주요국 · 스타 선수 — 나라별 그룹 (사진은 위키미디어 기반 실사진, 로컬 저장)
+  // img가 없는 선수는 이니셜 폴백 카드로 표시
+  const SQUADS = [
+    { team: "프랑스", flag: "🇫🇷", players: [
+      { player: "킬리안 음바페", pos: "FW", club: "레알 마드리드", img: "assets/img/players/mbappe.jpg", blurb: "압도적 결정력. 이번 대회 우승의 핵심 키." },
+      { player: "앙투안 그리즈만", pos: "FW", club: "AT 마드리드", img: "assets/img/players/griezmann.jpg", blurb: "팀을 잇는 연결고리. 빅매치에 강한 베테랑." },
+      { player: "우스만 뎀벨레", pos: "WG", club: "파리 생제르맹", img: "assets/img/players/dembele.jpg", blurb: "양발 드리블러. 2025 발롱도르 위너." }
+    ]},
+    { team: "아르헨티나", flag: "🇦🇷", players: [
+      { player: "리오넬 메시", pos: "FW", club: "인터 마이애미", img: "assets/img/players/messi.jpg", blurb: "디펜딩 챔피언의 상징. 역대 최다 타이 6번째 월드컵." },
+      { player: "라우타로 마르티네스", pos: "FW", club: "인터 밀란", img: "assets/img/players/martinez_l.jpg", blurb: "냉정한 마무리. 알비셀레스테의 9번." },
+      { player: "훌리안 알바레스", pos: "FW", club: "AT 마드리드", img: "assets/img/players/alvarez.jpg", blurb: "지칠 줄 모르는 활동량의 멀티 공격수." }
+    ]},
+    { team: "스페인", flag: "🇪🇸", players: [
+      { player: "라민 야말", pos: "WG", club: "FC 바르셀로나", img: "assets/img/players/yamal.jpg", blurb: "2025 발롱도르 2위. 첫 월드컵에 나서는 천재." },
+      { player: "페드리", pos: "MF", club: "FC 바르셀로나", img: "assets/img/players/pedri.jpg", blurb: "경기 템포를 지배하는 중원의 지휘자." },
+      { player: "로드리", pos: "MF", club: "맨체스터 시티", img: "assets/img/players/rodri.jpg", blurb: "2024 발롱도르. 수비형 미드필더의 교과서." }
+    ]},
+    { team: "잉글랜드", flag: "ENG_FLAG", players: [
+      { player: "주드 벨링엄", pos: "MF", club: "레알 마드리드", img: "assets/img/players/bellingham.jpg", blurb: "중원을 지배하는 전천후 미드필더." },
+      { player: "해리 케인", pos: "FW", club: "바이에른 뮌헨", img: "assets/img/players/kane.jpg", blurb: "잉글랜드 역대 최다 득점자. 확실한 9번." },
+      { player: "부카요 사카", pos: "WG", club: "아스널", img: "assets/img/players/saka.jpg", blurb: "오른쪽을 책임지는 폭발적 윙어." }
+    ]},
+    { team: "브라질", flag: "🇧🇷", players: [
+      { player: "비니시우스 주니오르", pos: "FW", club: "레알 마드리드", img: "assets/img/players/vinicius.jpg", blurb: "측면을 찢는 폭발적인 드리블러." },
+      { player: "호드리구", pos: "FW", club: "레알 마드리드", img: "assets/img/players/rodrygo.jpg", blurb: "큰 경기에 강한 해결사형 공격수." },
+      { player: "하피냐", pos: "WG", club: "FC 바르셀로나", img: "assets/img/players/raphinha.jpg", blurb: "득점과 도움을 겸비한 전천후 윙어." }
+    ]},
+    { team: "포르투갈", flag: "🇵🇹", players: [
+      { player: "크리스티아누 호날두", pos: "FW", club: "알 나스르", img: "assets/img/players/ronaldo.jpg", blurb: "41세의 라스트 댄스. 살아있는 전설." },
+      { player: "브루누 페르난드스", pos: "MF", club: "맨체스터 유나이티드", img: "assets/img/players/fernandes.jpg", blurb: "찬스를 만드는 창의적인 플레이메이커." },
+      { player: "하파엘 레앙", pos: "WG", club: "AC 밀란", img: "assets/img/players/leao.jpg", blurb: "스피드와 힘을 갖춘 측면 파괴자." }
+    ]},
+    { team: "독일", flag: "🇩🇪", players: [
+      { player: "자말 무시알라", pos: "MF", club: "바이에른 뮌헨", img: "assets/img/players/musiala.jpg", blurb: "부상 복귀 후 합류한 독일의 창의성." },
+      { player: "플로리안 비르츠", pos: "MF", club: "리버풀", img: "assets/img/players/wirtz.jpg", blurb: "독일 차세대 10번. 탈압박과 침투의 달인." },
+      { player: "요주아 키미히", pos: "MF", club: "바이에른 뮌헨", img: "assets/img/players/kimmich.jpg", blurb: "전술 지능과 패스의 사령탑이자 주장." }
+    ]},
+    { team: "네덜란드", flag: "🇳🇱", players: [
+      { player: "버질 반다이크", pos: "DF", club: "리버풀", img: "assets/img/players/vandijk.jpg", blurb: "세계 최정상급 수비수이자 주장." },
+      { player: "코디 학포", pos: "FW", club: "리버풀", img: "assets/img/players/gakpo.jpg", blurb: "왼발 슈팅이 일품인 멀티 공격수." },
+      { player: "멤피스 데파이", pos: "FW", club: "코린치안스", img: "assets/img/players/depay.jpg", blurb: "오라녜 역대 최다 득점에 빛나는 에이스." }
+    ]},
+    { team: "대한민국", flag: "🇰🇷", players: [
+      { player: "손흥민", pos: "FW", club: "LAFC", img: "assets/img/players/sonheungmin.jpg", blurb: "아시아 최고의 윙어. 대표팀의 주장이자 상징." },
+      { player: "이강인", pos: "MF", club: "파리 생제르맹", img: "assets/img/players/leekangin.jpg", blurb: "왼발 킥과 창의성을 갖춘 중원의 핵." },
+      { player: "김민재", pos: "DF", club: "바이에른 뮌헨", img: "assets/img/players/kimminjae.jpg", blurb: "‘괴물’이라 불리는 월드클래스 센터백." }
+    ]},
+    { team: "일본", flag: "🇯🇵", players: [
+      { player: "미토마 카오루", pos: "WG", club: "브라이턴", img: "assets/img/players/mitoma.jpg", blurb: "현란한 드리블로 측면을 허무는 윙어." },
+      { player: "쿠보 타케후사", pos: "WG", club: "레알 소시에다드", img: "assets/img/players/kubo.jpg", blurb: "탈압박과 연계가 뛰어난 기술형 공격수." },
+      { player: "엔도 와타루", pos: "MF", club: "리버풀", img: "assets/img/players/endo.jpg", blurb: "중원을 단단히 잠그는 사무라이의 주장." }
+    ]},
+    { team: "크로아티아", flag: "🇭🇷", players: [
+      { player: "루카 모드리치", pos: "MF", club: "AC 밀란", img: "assets/img/players/modric.jpg", blurb: "마지막 월드컵을 향하는 중원의 마에스트로." },
+      { player: "마테오 코바치치", pos: "MF", club: "맨체스터 시티", img: "assets/img/players/kovacic.jpg", blurb: "탈압박이 일품인 박스 투 박스 미드필더." },
+      { player: "이반 페리시치", pos: "WG", club: "PSV 에인트호번", img: "assets/img/players/perisic.jpg", blurb: "큰 무대에 강한 베테랑 측면 자원." }
+    ]},
+    { team: "벨기에", flag: "🇧🇪", players: [
+      { player: "케빈 더브라위너", pos: "MF", club: "나폴리", img: "assets/img/players/debruyne.jpg", blurb: "세계 최고의 플레이메이커. 황금세대의 두뇌." },
+      { player: "로멜루 루카쿠", pos: "FW", club: "나폴리", img: "assets/img/players/lukaku.jpg", blurb: "벨기에 역대 최다 득점자인 파워 스트라이커." },
+      { player: "제레미 도쿠", pos: "WG", club: "맨체스터 시티", img: "assets/img/players/doku.jpg", blurb: "폭발적인 가속력의 차세대 드리블러." }
+    ]},
+    { team: "모로코", flag: "🇲🇦", players: [
+      { player: "아슈라프 하키미", pos: "DF", club: "파리 생제르맹", img: "assets/img/players/hakimi.jpg", blurb: "공수를 넘나드는 세계 최고의 풀백." },
+      { player: "하킴 지예시", pos: "MF", club: "알 두하일", img: "assets/img/players/ziyech.jpg", blurb: "정교한 왼발 킥의 창의적 미드필더." },
+      { player: "브라힘 디아스", pos: "MF", club: "레알 마드리드", img: "assets/img/players/brahim.jpg", blurb: "좁은 공간을 뚫는 영리한 공격형 미드필더." }
+    ]},
+    { team: "나이지리아", flag: "🇳🇬", players: [
+      { player: "빅터 오시멘", pos: "FW", club: "갈라타사라이", img: "assets/img/players/osimhen.jpg", blurb: "폭발적인 결정력의 정상급 스트라이커." },
+      { player: "아데몰라 루크만", pos: "FW", club: "아탈란타", img: "assets/img/players/lookman.jpg", blurb: "2024 아프리카 올해의 선수. 측면의 해결사." },
+      { player: "알렉스 이워비", pos: "MF", club: "풀럼", img: "assets/img/players/iwobi.jpg", blurb: "활동량과 연계가 좋은 공격형 미드필더." }
+    ]}
   ];
 
   /* ----------------------------------------------------------
@@ -251,26 +314,81 @@
   }
 
   /* ----------------------------------------------------------
-     render: PLAYERS (star player photo cards)
+     render: SQUADS (country tabs + star player cards)
      ---------------------------------------------------------- */
+  // 이름에서 이니셜 추출 (사진 폴백 카드용) — 한글은 성 한 글자, 그 외는 첫 글자
+  function initialsOf(name) {
+    const parts = name.trim().split(/\s+/);
+    if (parts.length >= 2) return (parts[0][0] + parts[parts.length - 1][0]);
+    return name.slice(0, 2);
+  }
+
+  function buildPlayerCard(p, team, flag, i) {
+    const card = el("article", "pcard reveal");
+    card.style.transitionDelay = (i % 3) * 0.06 + "s";
+    const media = p.img
+      ? '<img loading="lazy" src="' + p.img + '" alt="' + p.player + '" />'
+      : '<span class="pcard__initials" aria-hidden="true">' + initialsOf(p.player) + "</span>";
+    card.innerHTML =
+      '<div class="pcard__media' + (p.img ? "" : " pcard__media--noimg") + '">' + media +
+        '<span class="pcard__pos">' + p.pos + "</span>" +
+      "</div>" +
+      '<div class="pcard__body">' +
+        '<div class="pcard__nat"><span class="pcard__flag">' + flagOf(flag) + "</span>" + team + "</div>" +
+        '<h3 class="pcard__name">' + p.player + "</h3>" +
+        '<span class="pcard__club">' + p.club + "</span>" +
+        '<p class="pcard__blurb">' + p.blurb + "</p>" +
+      "</div>";
+    return card;
+  }
+
   function renderPlayers() {
-    const root = $("#playersGrid");
-    if (!root) return;
-    PLAYERS.forEach((p, i) => {
-      const card = el("article", "pcard reveal");
-      card.style.transitionDelay = (i % 4) * 0.06 + "s";
-      card.innerHTML =
-        '<div class="pcard__media"><img loading="lazy" src="' + p.img + '" alt="' + p.player + '" />' +
-          '<span class="pcard__pos">' + p.pos + "</span>" +
-        "</div>" +
-        '<div class="pcard__body">' +
-          '<div class="pcard__nat"><span class="pcard__flag">' + flagOf(p.flag) + "</span>" + p.team + "</div>" +
-          '<h3 class="pcard__name">' + p.player + "</h3>" +
-          '<span class="pcard__club">' + p.club + "</span>" +
-          '<p class="pcard__blurb">' + p.blurb + "</p>" +
-        "</div>";
-      root.appendChild(card);
+    const tabsRoot = $("#playerTabs");
+    const grid = $("#playersGrid");
+    if (!grid || !tabsRoot) return;
+
+    let active = 0;
+
+    function paint() {
+      // 탭 활성 상태 갱신
+      Array.prototype.forEach.call(tabsRoot.children, (btn, idx) => {
+        const on = idx === active;
+        btn.classList.toggle("is-active", on);
+        btn.setAttribute("aria-selected", on ? "true" : "false");
+        btn.tabIndex = on ? 0 : -1;
+      });
+      // 선택 나라 선수만 렌더
+      const sq = SQUADS[active];
+      grid.innerHTML = "";
+      sq.players.forEach((p, i) => grid.appendChild(buildPlayerCard(p, sq.team, sq.flag, i)));
+      // 새로 그려진 카드에 reveal 적용
+      revealNow(grid);
+    }
+
+    // 탭 버튼 생성
+    SQUADS.forEach((sq, idx) => {
+      const btn = el("button", "ptab");
+      btn.type = "button";
+      btn.setAttribute("role", "tab");
+      btn.id = "ptab-" + idx;
+      btn.innerHTML =
+        '<span class="ptab__flag">' + flagOf(sq.flag) + "</span>" +
+        '<span class="ptab__name">' + sq.team + "</span>";
+      btn.addEventListener("click", () => { active = idx; paint(); });
+      // 키보드 좌우 화살표 탐색
+      btn.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+          e.preventDefault();
+          const dir = e.key === "ArrowRight" ? 1 : -1;
+          active = (active + dir + SQUADS.length) % SQUADS.length;
+          paint();
+          tabsRoot.children[active].focus();
+        }
+      });
+      tabsRoot.appendChild(btn);
     });
+
+    paint();
   }
 
   /* ----------------------------------------------------------
@@ -461,6 +579,21 @@
     });
     node.querySelectorAll("[data-count]").forEach(animateCount);
     if (node.dataset.count) animateCount(node);
+  }
+
+  // 동적으로 추가된(탭 전환 등) reveal 요소를 즉시 노출 — 짧은 stagger 후 fade-in
+  function revealNow(container) {
+    const els = container.querySelectorAll(".reveal");
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      els.forEach((e) => { e.classList.add("is-in"); fillAndCount(e); });
+      return;
+    }
+    els.forEach((e) => {
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        e.classList.add("is-in");
+        fillAndCount(e);
+      }));
+    });
   }
 
   function initReveal() {
