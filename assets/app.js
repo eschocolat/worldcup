@@ -110,6 +110,16 @@
     ]}
   ];
 
+  // 주목할 라이징 스타 — 차세대 유망주 + 이적/관심 정보 (link는 관심설, 확정 아님)
+  const RISING = [
+    { player: "이강인", flag: "🇰🇷", pos: "MF", born: "2001", club: "파리 생제르맹", link: "아틀레티코 마드리드 관심설", img: "assets/img/players/leekangin.jpg", blurb: "왼발 킥과 탈압박을 갖춘 한국의 차세대 에이스. 출전 시간을 늘릴 새 둥지를 찾는다는 관측." },
+    { player: "빅토르 무뇨스", flag: "🇪🇸", pos: "WG", born: "2005", club: "비야레알", link: "유럽 빅클럽 주시 대상", img: "assets/img/players/munoz.jpg", blurb: "라리가가 주목하는 스페인산 윙어. 폭발적인 속도와 돌파로 단숨에 떠오른 신예." },
+    { player: "얀 디오망데", flag: "🇨🇮", pos: "WG", born: "2006", club: "RB 라이프치히", link: "분데스리가 차세대 주목주", img: "assets/img/players/diomande.jpg", blurb: "코트디부아르 출신의 폭발적인 측면 자원. 라이프치히가 일찌감치 영입한 원석." },
+    { player: "아르다 귈레르", flag: "🇹🇷", pos: "MF", born: "2005", club: "레알 마드리드", link: "주전 도약 기대주", img: "assets/img/players/guler.jpg", blurb: "‘터키의 메시’로 불리는 왼발 플레이메이커. 레알에서 입지를 넓혀가는 중." },
+    { player: "케난 이을드즈", flag: "🇹🇷", pos: "MF", born: "2005", club: "유벤투스", link: "유럽 강호 관심 대상", img: "assets/img/players/yildiz.jpg", blurb: "유벤투스의 10번을 물려받은 차세대 간판. 창의성과 결정력을 겸비." },
+    { player: "바렌 자이르-에메리", flag: "🇫🇷", pos: "MF", born: "2006", club: "파리 생제르맹", link: "세계가 주목하는 영건", img: "assets/img/players/zaireemery.jpg", blurb: "역대 최연소 기록을 갈아치운 PSG의 중원 핵심. 성숙한 경기 운영이 강점." }
+  ];
+
   /* ----------------------------------------------------------
      DATA — PREDICTION (secondary)
      ---------------------------------------------------------- */
@@ -389,6 +399,30 @@
     });
 
     paint();
+  }
+
+  /* ----------------------------------------------------------
+     render: RISING stars (주목할 라이징 스타)
+     ---------------------------------------------------------- */
+  function renderRising() {
+    const root = $("#risingGrid");
+    if (!root) return;
+    RISING.forEach((p, i) => {
+      const card = el("article", "rcard reveal");
+      card.style.transitionDelay = (i % 3) * 0.06 + "s";
+      card.innerHTML =
+        '<div class="rcard__media"><img loading="lazy" src="' + p.img + '" alt="' + p.player + '" />' +
+          '<span class="rcard__pos">' + p.pos + "</span>" +
+          '<span class="rcard__born">’' + p.born.slice(2) + "</span>" +
+        "</div>" +
+        '<div class="rcard__body">' +
+          '<div class="rcard__nat"><span class="rcard__flag">' + flagOf(p.flag) + "</span>" + p.club + "</div>" +
+          '<h3 class="rcard__name">' + p.player + "</h3>" +
+          '<p class="rcard__blurb">' + p.blurb + "</p>" +
+          '<div class="rcard__link"><span class="rcard__link-tag">관심</span>' + p.link + "</div>" +
+        "</div>";
+      root.appendChild(card);
+    });
   }
 
   /* ----------------------------------------------------------
@@ -679,6 +713,7 @@
     renderHosts();
     renderCities();
     renderPlayers();
+    renderRising();
     // prediction (secondary)
     renderOdds();
     renderCompare();
